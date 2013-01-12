@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Wellcome to the Ultimate WineCellar{% endblock %}
+
+{% block content %}
+    <h2>Wines</h2>
+    {% if wines %}
+        <ul>
+            {% for wine in wines %}
+            <li><a href="{{ wine.get_absolute_url }}">{{ wine.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no wines in the cellar.</p>
+    {% endif %}
+    
+{% endblock %}

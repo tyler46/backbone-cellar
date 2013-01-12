@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ wine.name }}{% endblock %}
+
+{% block content %}
+<p>{{ wine.name }} is produced in {{ wine.country }} and specifficaly in {{ wine.region }}. It belongs to the grape variaty of {{ wine.grapes }}.</p>
+<p>For the best pleasure when drinking consider the following informations:
+{{ wine.notes }}
+</p>
+<img src="/static/{{ wine.picture }}" />
+{% endblock %}
