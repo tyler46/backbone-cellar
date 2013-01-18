@@ -1,8 +1,9 @@
+{% load static %}
 <!DOCTYPE HTML>
 <html>
 <head>
 <title>Backbone Cellar</title>
-<link rel="stylesheet" href="{{ STATIC_URL}}css/styles.css" />
+<link rel="stylesheet" href="{% static "css/styles.css" %}" type="text/css" />
 </head>
 
 <body>
@@ -20,36 +21,33 @@ This is a sample application part of of three-part tutorial showing how to build
 
 <!-- Templates -->
 <script type="text/template" id="tpl-wine-list-item">
-	<a href='#wines/<%= id %>'><%= name %></a>
+    <a href='#wines/{{id}}'>{{ name }}</a>
 </script>
 
 <script type="text/template" id="tpl-wine-details">
     <div class="form-left-col">
         <label>Id:</label>
-        <input type="text" id="wineId" name="id" value="<%= id %>" disabled />
+        <input type="text" id="wineId" name="id" value="{{ id }}" disabled />
         <label>Name:</label>
-        <input type="text" id="name" name="name" value="<%= name %>" required/>
+        <input type="text" id="name" name="name" value="{{ name }}" required/>
         <label>Grapes:</label>
-        <input type="text" id="grapes" name="grapes" value="<%= grapes %>"/>
+        <input type="text" id="grapes" name="grapes" value="{{ grapes }}"/>
         <label>Country:</label>
-        <input type="text" id="country" name="country" value="<%= country %>"/>
+        <input type="text" id="country" name="country" value="{{ country }}"/>
         <label>Region:</label>
-        <input type="text" id="region" name="region"  value="<%= region %>"/>
+        <input type="text" id="region" name="region"  value="{{ region }}"/>
         <label>Year:</label>
-        <input type="text" id="year" name="year"  value="<%= year %>"/>
+        <input type="text" id="year" name="year"  value="{{ year }}"/>
     </div>
     <div class="form-right-col">
-        <img height="300" src="../pics/<%= picture %>"/>
+        <img height="300" src="{% static "photos/{{ picture }}" %}"/>
         <label>Notes:</label>
-        <textarea id="description" name="description"><%= description %></textarea>
+        <textarea id="description" name="description">{{ description }}</textarea>
     </div>
 </script>
 
 <!-- JavaScript -->
-<script src="../lib/jquery-1.7.1.min.js"></script>
-<script src="../lib/underscore-min.js"></script>
-<script src="../lib/backbone-min.js"></script>
-<script src="js/main.js"></script>   
+<script type='text/javascript' data-main="{% static "js/scripts/app.js" %}" src="{% static "js/scripts/lib/require.js" %}"></script>
 
 </body>
 </html>
